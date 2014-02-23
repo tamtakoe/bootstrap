@@ -211,7 +211,7 @@ angular.module( 'ui.bootstrap.tooltip', [ 'ui.bootstrap.position', 'ui.bootstrap
               // need to wait for it to expire beforehand.
               // FIXME: this is a placeholder for a port of the transitions library.
               if ( scope.tt_animation ) {
-                transitionTimeout = $timeout(removeTooltip, 500);
+                transitionTimeout = transitionTimeout ? transitionTimeout : $timeout(removeTooltip, 500);
               } else {
                 removeTooltip();
               }
